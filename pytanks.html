@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PyTanks | David Bardalez</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>David Bardalez</h1>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#resume">Resume</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="project-page">
+      <h2>PyTanks</h2>
+      <p>
+        Built a Wii Tanks-inspired game in Python using a modular MVC architecture,
+        with work focused on movement, aiming, projectile behavior, collision handling,
+        and gameplay-system testing in a 3-person team.
+      </p>
+
+      <div class="project-hero-image">
+        <img
+          src="assets/pytanks/pytanks-gameplay.png"
+          alt="PyTanks gameplay screenshot"
+        />
+        <p class="project-image-caption">
+          Gameplay view showing player controls, projectile interactions, and the final game interface.
+        </p>
+      </div>
+
+      <div class="button-row">
+        <a class="button" href="projects.html">Back to Projects</a>
+        <a
+          class="button secondary"
+          href="https://olincollege.github.io/pytanks/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Play / View Project Site
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Overview</h2>
+      <p>
+        PyTanks was a collaborative software project inspired by Wii Tanks. The goal was not
+        just to recreate a playable game, but to build it in a way that emphasized software
+        architecture, maintainability, and team-based development rather than relying on a
+        single-file prototype.
+      </p>
+      <p>
+        The project used a Model-View-Controller structure to separate game state, rendering,
+        and control logic across the codebase. That architecture made it easier to implement
+        new gameplay features, reason about interactions between systems, and debug behavior
+        as the project became more complex.
+      </p>
+      <p>
+        The full project site is available here:
+        <a
+          href="https://olincollege.github.io/pytanks/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          PyTanks Website
+        </a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Images</h2>
+      <div class="project-image-grid">
+        <div class="project-image-card">
+          <img
+            src="assets/pytanks/pytanks-architecture.png"
+            alt="PyTanks MVC architecture diagram"
+          />
+          <p>MVC architecture diagram showing the separation of gameplay logic, rendering, and control flow.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>My Contributions</h2>
+      <ul class="simple-list">
+        <li>Implemented core gameplay systems including tank movement, mouse-based aiming, projectile spawning, wall interaction, and bullet bounce behavior.</li>
+        <li>Worked within an MVC architecture to keep gameplay logic, rendering, and user input separated across a modular codebase.</li>
+        <li>Helped develop collision and interaction logic for gameplay events involving projectiles, enemies, and map obstacles.</li>
+        <li>Contributed unit tests and debugging for important game behaviors including kills, deaths, enemy respawning, bombs, and score tracking.</li>
+        <li>Collaborated in a shared GitHub codebase with a 3-person team, iterating on systems while keeping the project understandable and maintainable.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Technical Highlights</h2>
+      <p>
+        A major part of the project was building gameplay systems inside a modular software
+        architecture rather than coding everything into one script. The MVC design forced us to
+        think carefully about where game state should live, how rendering should stay separate
+        from logic, and how user input should flow through the system. That made the project a
+        stronger software-engineering exercise than a typical small game prototype.
+      </p>
+      <p>
+        My work focused heavily on player interaction systems. I implemented tank movement,
+        mouse-based aiming, projectile spawning, and bullet bounce behavior, along with the wall
+        and collision interactions needed to make those systems behave consistently during play.
+        These features required coordinating multiple parts of the codebase rather than solving
+        each behavior in isolation.
+      </p>
+      <p>
+        I also contributed to testing and debugging. The project included unit tests for gameplay
+        behavior such as kills, deaths, enemy respawning, bomb effects, and score updates. That
+        testing work helped make the game more reliable and gave the team a structured way to
+        verify behavior while continuing to add features.
+      </p>
+    </section>
+
+    <section>
+      <h2>Challenges</h2>
+      <p>
+        One of the main challenges was making gameplay interactions feel correct while working in
+        a modular architecture. Features like aiming, projectile motion, collision detection, and
+        enemy interactions all depend on one another, so bugs often appeared at the boundaries
+        between systems rather than inside one isolated function.
+      </p>
+      <p>
+        Another challenge was collaboration. Because the project was built by a team, changes in
+        one subsystem could affect others, which meant code had to remain readable, modular, and
+        testable as the project evolved. That made architecture and debugging just as important
+        as feature implementation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Tools and Skills</h2>
+      <p>
+        <strong>Tools:</strong> Python, Pygame, Git, GitHub
+      </p>
+      <p>
+        <strong>Skills:</strong> MVC Architecture, Gameplay Systems, Collision Handling,
+        Object-Oriented Programming, Unit Testing, Debugging, Team-Based Development
+      </p>
+    </section>
+
+    <section>
+      <h2>Project Status</h2>
+      <p>
+        This project was completed as a collaborative software build and served as a strong
+        introduction to modular game architecture, gameplay-system implementation, testing,
+        and team-based Python development.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

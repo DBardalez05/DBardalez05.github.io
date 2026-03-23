@@ -1,3 +1,134 @@
-# David Bardalez
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Bardalez Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>David Bardalez</h1>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-ECE @ Olin | Embedded + PCB Design
+  <main>
+    <section id="home">
+      <p class="eyebrow">David Bardalez · Olin College of Engineering</p>
+      <h2>Embedded, Hardware, and Vision Projects</h2>
+      <p>
+        I’m an Electrical and Computer Engineering student at Olin College of Engineering
+        focused on embedded systems, PCB design, sensing hardware, battery systems,
+        and computer vision. I enjoy building hardware-software systems for automotive,
+        sensing, and autonomous applications.
+      </p>
+
+      <div class="button-row">
+        <a class="button" href="projects.html">View Projects</a>
+        <a class="button secondary" href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+      </div>
+    </section>
+
+    <section id="featured-projects">
+      <h2>Featured Projects</h2>
+
+      <div class="project-grid">
+        <div class="project-card">
+          <img
+            class="project-card-thumb"
+            src="assets/formula/formula-board-render.png"
+            alt="Formula SAE precharge and discharge PCB render"
+          />
+          <div class="project-card-content">
+            <h3>Formula SAE Precharge/Discharge PCB</h3>
+            <p>
+              Designed a 400V-class precharge/discharge control PCB for a Formula SAE EV tractive
+              system, including two-stage relay sequencing, safety logic, and HV/LV-aware layout.
+            </p>
+            <a href="formula.html">Project Details</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-content">
+            <h3>OCTAL Student Research Team</h3>
+            <p>
+              Contributing to STM32-based embedded communication and battery-sensing bring-up for a
+              student firefighting drone, with work focused on SPI, CAN, and per-cell voltage readout.
+            </p>
+            <a href="octal.html">Project Details</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img
+            class="project-card-thumb"
+            src="assets/chessboard/chessboard-system.jpg"
+            alt="Masterpiece Chessboard Hall-effect sensing system"
+          />
+          <div class="project-card-content">
+            <h3>Masterpiece Chessboard Hall-Effect Sensing System</h3>
+            <p>
+              Designed a scalable Hall-effect sensing system for an automated chessboard using custom PCBs,
+              embedded firmware, and I2C-based readout to generate real-time board occupancy data.
+            </p>
+            <a href="chessboard.html">Project Details</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img
+            class="project-card-thumb"
+            src="assets/drone/drone-detection-overlay.png"
+            alt="Basketball drone vision detection overlay"
+          />
+          <div class="project-card-content">
+            <h3>Basketball Drone Vision</h3>
+            <p>
+              Built a YOLOv8-based real-time vision pipeline for basketball shot detection, combining ball
+              and rim detection with custom tracking and event logic for made-shot counting.
+            </p>
+            <a href="drone.html">Project Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <a class="button secondary" href="projects.html">View All Projects</a>
+      </div>
+    </section>
+
+    <section id="resume">
+      <h2>Resume</h2>
+      <p>View my resume for experience, coursework, and additional technical work.</p>
+      <p>
+        <a class="button" href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">Open Resume PDF</a>
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:dbardalez@olin.edu">dbardalez@olin.edu</a></p>
+      <p>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/david-bardalez" target="_blank" rel="noopener noreferrer">
+          linkedin.com/in/david-bardalez
+        </a>
+      </p>
+      <p>
+        GitHub:
+        <a href="https://github.com/DBardalez05" target="_blank" rel="noopener noreferrer">
+          github.com/DBardalez05
+        </a>
+      </p>
+    </section>
+  </main>
+</body>
+</html>

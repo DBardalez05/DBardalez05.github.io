@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OCTAL Student Research Team | David Bardalez</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>David Bardalez</h1>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#resume">Resume</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="project-page">
+      <h2>OCTAL Student Research Team</h2>
+      <p>
+        Contributing to embedded communication and battery-sensing bring-up for a student
+        heavy-lift firefighting drone platform, with current work focused on STM32-based
+        SPI communication, CAN integration, and per-cell voltage readout through the battery
+        monitoring interface.
+      </p>
+
+      <div class="button-row">
+        <a class="button" href="projects.html">Back to Projects</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Overview</h2>
+      <p>
+        As part of the OCTAL Student Research Team, I work on embedded systems tasks related
+        to battery monitoring and inter-board communication for a heavy-lift firefighting
+        drone project. My current role has focused on bringing up STM32-based firmware that
+        interfaces with battery-monitoring hardware and supports communication with the
+        broader electrical system.
+      </p>
+      <p>
+        This work is less about writing isolated firmware features and more about making real
+        hardware communicate reliably. That includes debugging SPI behavior, validating
+        register readback, supporting CAN-side integration, and distinguishing between
+        firmware issues and hardware-state issues during board bring-up.
+      </p>
+    </section>
+
+    <section>
+      <h2>My Contributions</h2>
+      <ul class="simple-list">
+        <li>Modified and debugged STM32 firmware for battery-sensing bring-up and hardware validation.</li>
+        <li>Brought up SPI communication with the battery-monitoring interface and verified valid register readback behavior.</li>
+        <li>Implemented and tested per-cell voltage readout logic using battery-monitoring IC register data rather than direct MCU ADC measurement.</li>
+        <li>Supported CAN communication integration with the rest of the drone electrical system.</li>
+        <li>Worked through board bring-up issues by debugging firmware sequencing, communication behavior, and hardware-state assumptions together.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Technical Highlights</h2>
+      <p>
+        A major part of my work has been establishing reliable communication between an STM32
+        microcontroller and the battery-monitoring path over SPI. This included bringing up
+        the firmware interface, checking register read behavior, and verifying that the
+        communication path was functioning correctly before higher-level sensing behavior
+        could be trusted.
+      </p>
+      <p>
+        On the sensing side, I worked on per-cell voltage readout through the battery
+        monitoring IC interface. Rather than reading voltages directly through a simple MCU
+        analog input path, the STM32 reads cell-voltage register data from the battery
+        monitoring hardware over SPI. That makes the work more representative of real battery
+        monitoring bring-up and embedded communication debugging.
+      </p>
+      <p>
+        I also contributed to CAN-side integration for the broader system. This involved
+        supporting communication infrastructure between boards and helping ensure that useful
+        sensing data could move through the larger drone electrical architecture rather than
+        remaining isolated to one board.
+      </p>
+      <p>
+        One of the most important parts of the project has been board bring-up and validation.
+        In practice, valid communication does not always mean valid physical measurement, so
+        the work required checking firmware behavior, hardware state, and test conditions
+        together instead of assuming a problem lived in only one place.
+      </p>
+    </section>
+
+    <section>
+      <h2>Challenges</h2>
+      <p>
+        The hardest part of the project has been debugging at the boundary between firmware
+        and hardware. During bring-up, incorrect behavior can come from SPI configuration,
+        firmware sequencing, board state, or missing physical inputs, so each issue has to
+        be narrowed down carefully rather than treated as a simple code bug.
+      </p>
+      <p>
+        Another challenge has been validating measurement behavior in a system that is still
+        under development. Communication can appear correct even when the analog conditions
+        needed for meaningful voltage data are not fully present, so part of the engineering
+        work has been separating “the interface is responding” from “the physical measurement
+        path is truly valid.”
+      </p>
+    </section>
+
+    <section>
+      <h2>Tools and Skills</h2>
+      <p>
+        <strong>Tools:</strong> STM32, Embedded C, Multimeter, Serial Debug
+      </p>
+      <p>
+        <strong>Skills:</strong> SPI, CAN, Embedded Firmware, Battery-Sensing Bring-Up,
+        Per-Cell Voltage Readout, Board Bring-Up, Datasheet-Driven Debugging,
+        Hardware/Firmware Integration
+      </p>
+    </section>
+
+    <section>
+      <h2>Project Status</h2>
+      <p>
+        This project is ongoing. My current work has focused on STM32 communication and
+        voltage-sensing bring-up, with thermistor sensing expected as a future area of
+        contribution as the battery-monitoring subsystem continues to develop.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

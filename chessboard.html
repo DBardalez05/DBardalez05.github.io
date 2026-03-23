@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masterpiece Chessboard Hall-Effect Sensing System | David Bardalez</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>David Bardalez</h1>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#resume">Resume</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="project-page">
+      <h2>Masterpiece Chessboard Hall-Effect Sensing System</h2>
+      <p>
+        Designed a scalable Hall-effect sensing system for an automated chessboard using
+        custom sensor and I2C expander PCBs, embedded firmware, and full-board signal
+        integration. The system detected square occupancy in real time, generated a board-state
+        matrix, and transmitted that data over serial to a higher-level game system.
+      </p>
+
+      <div class="project-hero-image">
+        <img
+          src="assets/chessboard/chessboard-system.jpg"
+          alt="Full chessboard Hall-effect sensing system"
+        />
+        <p class="project-image-caption">
+          Full system view of the chessboard sensing build used for real-time occupancy and move detection.
+        </p>
+      </div>
+
+      <div class="button-row">
+        <a class="button" href="projects.html">Back to Projects</a>
+        <a
+          class="button secondary"
+          href="https://olincollege.github.io/pie-2025-03/masterpiece/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Team Project Site
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Overview</h2>
+      <p>
+        This project was part of a larger automated chessboard system, where my work focused on
+        the electronics and firmware needed to detect board occupancy in real time. The goal was
+        to build a sensing architecture that could reliably determine which squares were occupied
+        and provide that information to the rest of the system for move tracking.
+      </p>
+      <p>
+        Rather than treating the board as a small proof of concept, I approached it as a scalable
+        embedded sensing system. That meant designing custom PCBs, building the readout
+        architecture around I2C expanders, writing firmware to assemble the board-state matrix,
+        and debugging the electrical and physical integration challenges that appeared at full size.
+      </p>
+      <p>
+        You can also view the full team project site here:
+        <a
+          href="https://olincollege.github.io/pie-2025-03/masterpiece/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Masterpiece Team Website
+        </a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Images</h2>
+      <div class="project-image-grid">
+        <div class="project-image-card">
+          <img
+            src="assets/chessboard/chessboard-sensor-pcb.jpg"
+            alt="Chessboard Hall-effect sensor PCB"
+          />
+          <p>Custom sensor PCB used to read Hall-effect sensors across a section of the board.</p>
+        </div>
+
+        <div class="project-image-card">
+          <img
+            src="assets/chessboard/chessboard-expander-pcb.jpg"
+            alt="Chessboard I2C expander PCB"
+          />
+          <p>Expansion PCB used to scale sensor readout and organize full-board I2C communication.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>My Contributions</h2>
+      <ul class="simple-list">
+        <li>Designed custom Hall-effect sensor and I2C expander PCBs to scale occupancy sensing across the chessboard.</li>
+        <li>Built the embedded firmware that scanned the sensing hardware, assembled the board-state matrix, and sent that matrix over serial to the larger system.</li>
+        <li>Developed and debugged full-system integration including I2C communication, addressing, wiring, board assembly, and readout validation.</li>
+        <li>Brought the sensing system to working functionality and helped identify that final board-level inconsistency came from mechanical wood bowing rather than the core sensing architecture itself.</li>
+        <li>Continued iterating on the design through a cleaner PCB revision and evaluation of more sensitive Hall-effect sensors to improve robustness and reduce wiring complexity.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Technical Highlights</h2>
+      <p>
+        A major part of the project was designing a sensing architecture that could scale across
+        the full chessboard rather than only a small test region. I created custom PCBs for the
+        Hall-effect sensors and for the I2C expansion hardware so the system could read many
+        sensing points in an organized and repeatable way.
+      </p>
+      <p>
+        On the firmware side, I wrote the code that read the sensing hardware, assembled those
+        readings into a board-state matrix, and transmitted that matrix over serial for use by
+        the higher-level control software. The sensing system detected occupancy rather than piece
+        identity directly, but because the larger system knew the initial board configuration, the
+        occupancy data could still be used for move detection and game-state updates.
+      </p>
+      <p>
+        The project also required substantial bring-up and debugging work. I worked across PCB
+        design, firmware, wiring, addressing, and board integration to verify that the system could
+        read the board consistently at larger scale. This was important because the challenge was
+        not just getting a single sensor working, but getting a dense network of sensing hardware
+        to behave as one coherent embedded system.
+      </p>
+      <p>
+        In its current phase, I am redesigning portions of the system to reduce wiring complexity
+        and improve reliability. That work includes testing more sensitive Hall-effect sensors so
+        the system can better tolerate mechanical board bowing and maintain stronger detection
+        margins in the final physical assembly.
+      </p>
+    </section>
+
+    <section>
+      <h2>Integration Challenges</h2>
+      <p>
+        One of the biggest challenges was scaling from an electronics concept to a full-board
+        implementation. It is much easier to validate sensing on a small prototype than on a
+        large physical surface with many sensors, multiple boards, and extensive interconnects.
+        At full scale, wiring complexity and integration overhead became major design concerns.
+      </p>
+      <p>
+        Another important challenge was that the final chessboard introduced mechanical effects
+        that influenced the electronics. The sensing system itself worked, but wood bowing in the
+        final board changed the sensor-to-magnet spacing enough to reduce consistency. Solving
+        that problem required thinking beyond PCB and firmware alone and redesigning the system
+        with stronger tolerance to physical variation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Tools and Skills</h2>
+      <p>
+        <strong>Tools:</strong> KiCad, Arduino/C++, Logic Analyzer, DMM
+      </p>
+      <p>
+        <strong>Skills:</strong> PCB Design, Embedded Firmware, Hall-Effect Sensing, I2C
+        Expansion, Serial Communication, Hardware Debugging, System Integration, Design Iteration
+      </p>
+    </section>
+
+    <section>
+      <h2>Project Status</h2>
+      <p>
+        The sensing architecture achieved working functionality and full-board occupancy readout,
+        with final board-level consistency limited by mechanical deflection in the chessboard
+        structure. The project is still being improved through PCB redesign, cleaner integration,
+        and sensor-selection changes aimed at making the system more robust in the final build.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | David Bardalez</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>David Bardalez</h1>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#resume">Resume</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="projects-home">
+      <h2>Projects</h2>
+      <p>
+        This page collects my work across PCB design, embedded systems, firmware,
+        computer vision, and software. The projects below reflect the areas I’m most
+        interested in pursuing professionally: hardware-software integration, sensing,
+        robotics, embedded communication, and system-level engineering.
+      </p>
+    </section>
+
+    <section>
+      <h2>PCB & Hardware Systems</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img
+            class="project-card-thumb"
+            src="assets/formula/formula-board-render.png"
+            alt="Formula SAE precharge and discharge PCB render"
+          />
+          <div class="project-card-content">
+            <h3>Formula SAE Precharge/Discharge PCB</h3>
+            <p>
+              Designed a 400V-class precharge/discharge control PCB for a Formula SAE EV tractive
+              system, including two-stage relay sequencing, safety logic, and HV/LV-aware layout.
+            </p>
+            <a href="formula.html">Project Details</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img
+            class="project-card-thumb"
+            src="assets/chessboard/chessboard-system.jpg"
+            alt="Masterpiece Chessboard Hall-effect sensing system"
+          />
+          <div class="project-card-content">
+            <h3>Masterpiece Chessboard Hall-Effect Sensing System</h3>
+            <p>
+              Designed a scalable Hall-effect sensing system for an automated chessboard using custom PCBs,
+              embedded firmware, and I2C-based readout to generate real-time board occupancy data.
+            </p>
+            <a href="chessboard.html">Project Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Embedded & Firmware</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-card-content">
+            <h3>OCTAL Student Research Team</h3>
+            <p>
+              Contributing to STM32-based embedded communication and battery-sensing bring-up for a
+              student firefighting drone, with work focused on SPI, CAN, and per-cell voltage readout.
+            </p>
+            <a href="octal.html">Project Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Computer Vision & Software</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img
+            class="project-card-thumb"
+            src="assets/drone/drone-detection-overlay.png"
+            alt="Basketball drone vision detection overlay"
+          />
+          <div class="project-card-content">
+            <h3>Basketball Drone Vision</h3>
+            <p>
+              Built a YOLOv8-based real-time vision pipeline for basketball shot detection, combining ball
+              and rim detection with custom tracking and event logic for made-shot counting.
+            </p>
+            <a href="drone.html">Project Details</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img
+            class="project-card-thumb"
+            src="assets/pytanks/pytanks-gameplay.png"
+            alt="PyTanks gameplay screenshot"
+          />
+          <div class="project-card-content">
+            <h3>PyTanks</h3>
+            <p>
+              Built a Wii Tanks-inspired Python game using MVC architecture, with work focused on movement,
+              aiming, projectile behavior, collision logic, and gameplay-system testing in a team codebase.
+            </p>
+            <a href="pytanks.html">Project Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Additional Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img
+            class="project-card-thumb"
+            src="assets/headrestraint/headrestraint-cad.png"
+            alt="Formula SAE head restraint CAD model"
+          />
+          <div class="project-card-content">
+            <h3>Formula SAE Head Restraint</h3>
+            <p>
+              Designed a Formula SAE head restraint to satisfy driver safety, cockpit packaging, and structural
+              requirements using CAD, hand calculations, and FEA before final on-car integration.
+            </p>
+            <a href="headrestraint.html">Project Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

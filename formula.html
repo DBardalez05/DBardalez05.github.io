@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formula SAE Precharge/Discharge PCB | David Bardalez</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>David Bardalez</h1>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#resume">Resume</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="project-page">
+      <h2>Formula SAE Precharge/Discharge PCB</h2>
+      <p>
+        Designed a 400V-class precharge/discharge control PCB for a Formula SAE EV tractive
+        system to safely charge the inverter DC-link capacitor before full pack connection.
+        The board coordinates two-stage relay sequencing, HV threshold detection, and
+        safety/interlock logic to support reliable startup and shutdown behavior.
+      </p>
+
+      <div class="project-hero-image">
+        <img
+          src="assets/formula/formula-board-render.png"
+          alt="Render of the Formula SAE precharge and discharge PCB"
+        />
+        <p class="project-image-caption">
+          PCB render of the precharge/discharge controller used to manage staged high-voltage startup and shutdown.
+        </p>
+      </div>
+
+      <div class="button-row">
+        <a class="button" href="projects.html">Back to Projects</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Overview</h2>
+      <p>
+        As part of Olin Electric Motorsports, I designed a precharge/discharge controller PCB
+        for the car’s high-voltage accumulator system. Its role is to manage how the tractive
+        system connects to the inverter during startup by charging the DC-link capacitor in a
+        controlled way before the main connection is completed.
+      </p>
+      <p>
+        This was a safety-critical board shaped by system-level constraints rather than only
+        circuit functionality. The design had to coordinate relay control, threshold-based
+        state transitions, and safe default behavior while fitting into the broader Formula SAE
+        EV architecture and its HV/LV isolation requirements.
+      </p>
+    </section>
+
+    <section>
+      <h2>Images</h2>
+      <div class="project-image-grid">
+        <div class="project-image-card">
+          <img
+            src="assets/formula/formula-schematic-overview.png"
+            alt="Overview of the Formula SAE precharge and discharge schematic"
+          />
+          <p>Schematic overview showing relay sequencing, sensing, and protection logic across the board.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>My Contributions</h2>
+      <ul class="simple-list">
+        <li>Designed a 400V-class precharge/discharge control PCB for a Formula SAE EV high-voltage system.</li>
+        <li>Implemented two-stage precharge sequencing to charge the inverter DC-link capacitor in a controlled manner before full connection.</li>
+        <li>Designed safety/interlock logic for relay coil drive, threshold-based state transitions, and startup/shutdown control.</li>
+        <li>Developed deterministic latch/reset behavior so the precharge-done state initializes cleanly and avoids unsafe startup conditions.</li>
+        <li>Completed PCB layout in KiCad while balancing relay footprint constraints, HV/LV isolation, and rule-driven design requirements.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Technical Highlights</h2>
+      <p>
+        The board controls a two-stage precharge process rather than switching the tractive
+        system on directly. In the first stage, the system charges the inverter DC-link
+        capacitor through a resistor path to limit inrush current. Once a threshold is reached,
+        the second stage takes over so the system can transition toward normal operation in a
+        controlled and repeatable way.
+      </p>
+      <p>
+        A major part of the design involved safety and state-management logic. I worked on
+        threshold detection and latch behavior so that “precharge done” could be captured and
+        remembered during the active precharge window, while still guaranteeing a clean reset
+        when precharge is inactive. That deterministic reset behavior was important because the
+        board needed predictable startup behavior rather than relying on undefined latch state
+        at boot.
+      </p>
+      <p>
+        I also designed around safe defaults and sequencing behavior at the logic level. This
+        included ensuring that missing or floating command conditions did not produce unsafe
+        behavior, and shaping the control logic so relay transitions behaved in a controlled
+        way during enable and shutdown events.
+      </p>
+      <p>
+        Beyond schematic design, the project required careful PCB layout for a mixed HV/LV
+        system. I had to work within the physical size imposed by the relay footprints while
+        maintaining isolation discipline and organizing the board so the high-voltage and
+        low-voltage sections remained clearly separated and practical to manufacture.
+      </p>
+    </section>
+
+    <section>
+      <h2>Design Constraints and Challenges</h2>
+      <p>
+        One of the hardest parts of the project was PCB layout. The relays imposed strong size
+        and placement constraints, which made routing and board organization much harder than
+        a typical low-voltage board. At the same time, the layout had to preserve HV/LV
+        separation and reflect the isolation requirements expected in a Formula SAE EV system.
+      </p>
+      <p>
+        Another major challenge was getting the latch logic right. I had to repeatedly revisit
+        the logic to account for edge cases and make sure the SR latch always had a guaranteed
+        reset condition. That work pushed the design beyond a simple functional schematic and
+        into failure-mode thinking, where deterministic behavior during startup and shutdown
+        mattered just as much as nominal operation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Tools and Skills</h2>
+      <p>
+        <strong>Tools:</strong> KiCad
+      </p>
+      <p>
+        <strong>Skills:</strong> PCB Design, High-Voltage System Design, Relay Sequencing,
+        Safety/Interlock Logic, HV/LV Isolation, Datasheet-Driven Design, Design Review,
+        Formula SAE Rule-Constrained Design
+      </p>
+    </section>
+
+    <section>
+      <h2>Project Status</h2>
+      <p>
+        The board design and layout are complete, and the PCB has been ordered. Current work is
+        transitioning from design into bring-up preparation, with the project positioned for
+        validation and integration into the vehicle’s high-voltage system.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
