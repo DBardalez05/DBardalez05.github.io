@@ -23,42 +23,54 @@
     <section id="project-page">
       <h2>OCTAL Student Research Team</h2>
       <p>
-        Contributing to embedded communication and battery-sensing bring-up for a student
-        heavy-lift firefighting drone platform, with current work focused on STM32-based
-        SPI communication, CAN integration, and per-cell voltage readout through the battery
-        monitoring interface.
+        Developing embedded firmware for battery monitoring and sensing bring-up on a student
+        heavy-lift firefighting drone platform, with work focused on STM32-based SPI/I2C
+        communication, per-cell voltage readout, and multiplexed thermistor acquisition.
       </p>
 
       <div class="button-row">
         <a class="button" href="projects.html">Back to Projects</a>
       </div>
+
+      <div class="project-hero-image">
+        <img
+          src="assets/octal/bms_setup.jpg"
+          alt="OCTAL BMS board bring-up setup with STM32 board, ST-LINK, wiring, and laptop connection"
+          style="height: 1000px; object-fit: cover; object-position: center 35%;"
+        />
+      </div>
+      <p class="project-image-caption">
+        Hardware bring-up setup used to validate communication and sensing on the BMS board.
+      </p>
     </section>
 
     <section>
       <h2>Overview</h2>
       <p>
         As part of the OCTAL Student Research Team, I work on embedded systems tasks related
-        to battery monitoring and inter-board communication for a heavy-lift firefighting
-        drone project. My current role has focused on bringing up STM32-based firmware that
-        interfaces with battery-monitoring hardware and supports communication with the
-        broader electrical system.
+        to battery monitoring and sensor bring-up for a heavy-lift firefighting drone project.
+        My role has focused on making the STM32 communicate reliably with battery-monitoring
+        hardware and sensing circuitry, then validating that the returned data reflects real
+        physical measurements rather than just successful communication.
       </p>
       <p>
-        This work is less about writing isolated firmware features and more about making real
-        hardware communicate reliably. That includes debugging SPI behavior, validating
-        register readback, supporting CAN-side integration, and distinguishing between
-        firmware issues and hardware-state issues during board bring-up.
+        This work has involved firmware bring-up, hardware-aware debugging, and measurement
+        validation across multiple interfaces. Rather than treating sensing as isolated code,
+        I have worked at the boundary between firmware and hardware to establish reliable
+        readout paths for both cell voltages and thermistors.
       </p>
     </section>
 
     <section>
       <h2>My Contributions</h2>
       <ul class="simple-list">
-        <li>Modified and debugged STM32 firmware for battery-sensing bring-up and hardware validation.</li>
-        <li>Brought up SPI communication with the battery-monitoring interface and verified valid register readback behavior.</li>
-        <li>Implemented and tested per-cell voltage readout logic using battery-monitoring IC register data rather than direct MCU ADC measurement.</li>
-        <li>Supported CAN communication integration with the rest of the drone electrical system.</li>
-        <li>Worked through board bring-up issues by debugging firmware sequencing, communication behavior, and hardware-state assumptions together.</li>
+        <li>Modified and debugged STM32 firmware for battery-monitoring and sensing bring-up.</li>
+        <li>Brought up SPI communication with the ADBMS battery-monitoring path and verified valid register readback behavior.</li>
+        <li>Implemented and tested per-cell voltage readout using battery-monitor IC register data over SPI.</li>
+        <li>Determined the thermistor signal path from schematic review and implemented multiplexed thermistor readout using STM32 I2C-controlled MAX14661 muxes and local ADC measurement.</li>
+        <li>Mapped thermistor channels from hardware schematics into firmware and validated successful thermistor voltage acquisition.</li>
+        <li>Supported CAN communication integration with the broader drone electrical system.</li>
+        <li>Worked through bring-up issues by debugging firmware sequencing, communication behavior, and hardware-state assumptions together.</li>
       </ul>
     </section>
 
@@ -67,66 +79,87 @@
       <p>
         A major part of my work has been establishing reliable communication between an STM32
         microcontroller and the battery-monitoring path over SPI. This included bringing up
-        the firmware interface, checking register read behavior, and verifying that the
-        communication path was functioning correctly before higher-level sensing behavior
-        could be trusted.
+        the firmware interface, validating register read behavior, and confirming that the
+        communication path was functioning correctly before trusting higher-level sensing data.
       </p>
       <p>
-        On the sensing side, I worked on per-cell voltage readout through the battery
-        monitoring IC interface. Rather than reading voltages directly through a simple MCU
-        analog input path, the STM32 reads cell-voltage register data from the battery
-        monitoring hardware over SPI. That makes the work more representative of real battery
-        monitoring bring-up and embedded communication debugging.
+        On the voltage-sensing side, I implemented per-cell voltage readout through the ADBMS
+        interface. Instead of relying on direct MCU analog measurement, the STM32 requests and
+        parses battery-monitor register data over SPI, which more closely reflects real embedded
+        battery-management bring-up.
       </p>
       <p>
-        I also contributed to CAN-side integration for the broader system. This involved
-        supporting communication infrastructure between boards and helping ensure that useful
-        sensing data could move through the larger drone electrical architecture rather than
-        remaining isolated to one board.
+        I also implemented the thermistor readout path by tracing the sensing architecture from
+        the board schematics and separating it from the battery-monitor path. The thermistor
+        network is routed through MAX14661 analog multiplexers controlled over I2C, with the
+        selected outputs read locally by STM32 ADC pins. I added firmware to configure the muxes,
+        scan thermistor channels, and acquire validated thermistor voltage data.
       </p>
       <p>
-        One of the most important parts of the project has been board bring-up and validation.
-        In practice, valid communication does not always mean valid physical measurement, so
-        the work required checking firmware behavior, hardware state, and test conditions
-        together instead of assuming a problem lived in only one place.
+        This required understanding how multiple communication and measurement paths coexist on
+        the same board: SPI for battery-monitor communication, I2C for thermistor mux control,
+        and ADC for analog thermistor measurement. Working across those interfaces gave me
+        hands-on experience with real hardware/firmware integration rather than isolated coding.
       </p>
+
+      <div class="project-image-grid">
+        <div class="project-image-card">
+          <img
+            src="assets/octal/cell_voltage_readings.png"
+            alt="Serial output showing successful cell voltage readings from the OCTAL BMS board"
+            style="height: 450px; object-fit: cover; object-position: top;"
+          />
+          <p>
+            Serial output showing successful per-cell voltage readback through the battery-monitor interface.
+          </p>
+        </div>
+
+        <div class="project-image-card">
+          <img
+            src="assets/octal/thermistor_readings.png"
+            alt="Serial output showing successful thermistor readings from multiplexed STM32 ADC acquisition"
+            style="height: 450px; object-fit: cover; object-position: top;"
+          />
+          <p>
+            Serial output showing multiplexed thermistor voltage acquisition using I2C-controlled muxes and STM32 ADC inputs.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section>
       <h2>Challenges</h2>
       <p>
-        The hardest part of the project has been debugging at the boundary between firmware
-        and hardware. During bring-up, incorrect behavior can come from SPI configuration,
-        firmware sequencing, board state, or missing physical inputs, so each issue has to
-        be narrowed down carefully rather than treated as a simple code bug.
+        The hardest part of the project has been debugging at the firmware-hardware boundary.
+        During bring-up, incorrect behavior can come from SPI configuration, I2C device addressing,
+        mux selection logic, ADC interpretation, board state, or missing physical inputs, so each
+        issue has to be narrowed down carefully rather than treated as a simple code bug.
       </p>
       <p>
-        Another challenge has been validating measurement behavior in a system that is still
-        under development. Communication can appear correct even when the analog conditions
-        needed for meaningful voltage data are not fully present, so part of the engineering
-        work has been separating “the interface is responding” from “the physical measurement
-        path is truly valid.”
+        Another challenge has been separating “communication works” from “measurement is valid.”
+        For both voltage and thermistor sensing, it was important to confirm not only that the
+        interface responded, but that the returned values matched the actual hardware path and
+        expected electrical behavior.
       </p>
     </section>
 
     <section>
       <h2>Tools and Skills</h2>
       <p>
-        <strong>Tools:</strong> STM32, Embedded C, Multimeter, Serial Debug
+        <strong>Tools:</strong> STM32, Embedded C/C++, Arduino IDE, Multimeter, Serial Debug, Schematics/Datasheets
       </p>
       <p>
-        <strong>Skills:</strong> SPI, CAN, Embedded Firmware, Battery-Sensing Bring-Up,
-        Per-Cell Voltage Readout, Board Bring-Up, Datasheet-Driven Debugging,
-        Hardware/Firmware Integration
+        <strong>Skills:</strong> SPI, I2C, ADC Readout, CAN, Embedded Firmware, Battery Monitoring,
+        Thermistor Sensing, Board Bring-Up, Datasheet-Driven Debugging, Hardware/Firmware Integration
       </p>
     </section>
 
     <section>
       <h2>Project Status</h2>
       <p>
-        This project is ongoing. My current work has focused on STM32 communication and
-        voltage-sensing bring-up, with thermistor sensing expected as a future area of
-        contribution as the battery-monitoring subsystem continues to develop.
+        This project is ongoing. I have completed bring-up for per-cell voltage readout and
+        multiplexed thermistor acquisition, and the next stage is integrating these sensing
+        results into higher-level board behavior and system-state logic.
       </p>
     </section>
   </main>
