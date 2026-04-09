@@ -23,9 +23,9 @@
     <section id="project-page">
       <h2>OCTAL Student Research Team</h2>
       <p>
-        Developing embedded firmware for battery monitoring and sensing bring-up on a student
-        heavy-lift firefighting drone platform, with work focused on STM32-based SPI/I2C
-        communication, per-cell voltage readout, and multiplexed thermistor acquisition.
+        Developed embedded battery-management firmware for a student heavy-lift firefighting drone,
+        focused on STM32-based sensor bring-up, per-cell voltage monitoring, thermistor acquisition,
+        pack-voltage calculation, and early BMS fault/state logic.
       </p>
 
       <div class="button-row">
@@ -40,66 +40,65 @@
         />
       </div>
       <p class="project-image-caption">
-        Hardware bring-up setup used to validate communication and sensing on the BMS board.
+        BMS bring-up setup used to validate communication, sensing, and early fault-handling behavior on the board.
       </p>
     </section>
 
     <section>
       <h2>Overview</h2>
       <p>
-        As part of the OCTAL Student Research Team, I work on embedded systems tasks related
-        to battery monitoring and sensor bring-up for a heavy-lift firefighting drone project.
-        My role has focused on making the STM32 communicate reliably with battery-monitoring
-        hardware and sensing circuitry, then validating that the returned data reflects real
-        physical measurements rather than just successful communication.
+        As part of the OCTAL Student Research Team, I work on embedded systems for battery monitoring
+        and protection in a heavy-lift firefighting drone platform. My work has centered on building
+        the firmware foundation needed for the battery-management system to sense battery conditions
+        reliably and respond when readings leave safe operating limits.
       </p>
       <p>
-        This work has involved firmware bring-up, hardware-aware debugging, and measurement
-        validation across multiple interfaces. Rather than treating sensing as isolated code,
-        I have worked at the boundary between firmware and hardware to establish reliable
-        readout paths for both cell voltages and thermistors.
+        This project combines hardware-aware debugging with firmware development. I first brought up
+        the communication and sensing paths for cell voltages and thermistors, then extended that work
+        into basic BMS behavior by adding threshold checks, a fault bitmask, and IDLE/FAULTED state logic.
       </p>
     </section>
 
     <section>
       <h2>My Contributions</h2>
       <ul class="simple-list">
-        <li>Modified and debugged STM32 firmware for battery-monitoring and sensing bring-up.</li>
+        <li>Modified and debugged STM32 firmware for battery-monitoring bring-up on the OCTAL BMS board.</li>
         <li>Brought up SPI communication with the ADBMS battery-monitoring path and verified valid register readback behavior.</li>
-        <li>Implemented and tested per-cell voltage readout using battery-monitor IC register data over SPI.</li>
-        <li>Determined the thermistor signal path from schematic review and implemented multiplexed thermistor readout using STM32 I2C-controlled MAX14661 muxes and local ADC measurement.</li>
-        <li>Mapped thermistor channels from hardware schematics into firmware and validated successful thermistor voltage acquisition.</li>
-        <li>Supported CAN communication integration with the broader drone electrical system.</li>
-        <li>Worked through bring-up issues by debugging firmware sequencing, communication behavior, and hardware-state assumptions together.</li>
+        <li>Implemented per-cell voltage readout and pack-voltage summation from battery-monitor IC register data.</li>
+        <li>Traced the thermistor sensing path from schematics and implemented multiplexed thermistor readout using STM32-controlled MAX14661 muxes and onboard ADC measurement.</li>
+        <li>Added thermistor voltage-to-temperature conversion using the thermistor transfer function supplied by the hardware team.</li>
+        <li>Implemented basic BMS fault detection for undervoltage, overvoltage, undertemperature, overtemperature, mux faults, PEC faults, and ADBMS communication faults.</li>
+        <li>Built early BMS state logic that continuously monitors readings in IDLE and transitions to FAULTED when unsafe conditions are detected.</li>
+        <li>Structured firmware outputs around the system CAN message definitions to support later integration with the rest of the drone electrical architecture.</li>
       </ul>
     </section>
 
     <section>
       <h2>Technical Highlights</h2>
       <p>
-        A major part of my work has been establishing reliable communication between an STM32
-        microcontroller and the battery-monitoring path over SPI. This included bringing up
-        the firmware interface, validating register read behavior, and confirming that the
-        communication path was functioning correctly before trusting higher-level sensing data.
+        A major part of this work was establishing reliable communication between an STM32
+        microcontroller and the battery-monitoring path over SPI. Before higher-level BMS behavior
+        could be trusted, I had to confirm that register reads were valid, that returned values were
+        physically meaningful, and that the battery-monitor interface was behaving consistently.
       </p>
       <p>
-        On the voltage-sensing side, I implemented per-cell voltage readout through the ADBMS
-        interface. Instead of relying on direct MCU analog measurement, the STM32 requests and
-        parses battery-monitor register data over SPI, which more closely reflects real embedded
-        battery-management bring-up.
+        On the voltage-sensing side, I implemented firmware to read per-cell voltages from the battery
+        monitor and calculate overall pack voltage by summing the cell measurements. This made it
+        possible to track both individual cell health and full-pack behavior from the firmware layer.
       </p>
       <p>
-        I also implemented the thermistor readout path by tracing the sensing architecture from
-        the board schematics and separating it from the battery-monitor path. The thermistor
-        network is routed through MAX14661 analog multiplexers controlled over I2C, with the
-        selected outputs read locally by STM32 ADC pins. I added firmware to configure the muxes,
-        scan thermistor channels, and acquire validated thermistor voltage data.
+        I also implemented the thermistor sensing path by following the hardware architecture from the
+        schematics. The thermistor network is routed through MAX14661 analog multiplexers controlled
+        over I2C, with the selected outputs measured by STM32 ADC pins. I added the mux-control logic,
+        thermistor scanning, voltage conversion, and voltage-to-temperature conversion needed to turn
+        raw ADC values into usable temperature data.
       </p>
       <p>
-        This required understanding how multiple communication and measurement paths coexist on
-        the same board: SPI for battery-monitor communication, I2C for thermistor mux control,
-        and ADC for analog thermistor measurement. Working across those interfaces gave me
-        hands-on experience with real hardware/firmware integration rather than isolated coding.
+        After the sensing paths were validated, I extended the firmware into a basic BMS monitor.
+        The board continuously evaluates minimum and maximum cell voltage and temperature against
+        operating thresholds, sets fault bits when unsafe conditions are detected, and transitions
+        from IDLE to FAULTED when the pack moves outside allowed operating conditions. This was my
+        first step from board bring-up into actual protection-oriented embedded firmware behavior.
       </p>
 
       <div class="project-image-grid">
@@ -121,7 +120,7 @@
             style="height: 450px; object-fit: cover; object-position: top;"
           />
           <p>
-            Serial output showing multiplexed thermistor voltage acquisition using I2C-controlled muxes and STM32 ADC inputs.
+            Thermistor acquisition path using I2C-controlled muxes, STM32 ADC inputs, and firmware-side temperature conversion.
           </p>
         </div>
       </div>
@@ -130,16 +129,16 @@
     <section>
       <h2>Challenges</h2>
       <p>
-        The hardest part of the project has been debugging at the firmware-hardware boundary.
-        During bring-up, incorrect behavior can come from SPI configuration, I2C device addressing,
+        The hardest part of the project has been debugging at the hardware-firmware boundary.
+        During bring-up, incorrect behavior can come from SPI configuration, I2C addressing,
         mux selection logic, ADC interpretation, board state, or missing physical inputs, so each
-        issue has to be narrowed down carefully rather than treated as a simple code bug.
+        issue has to be narrowed down carefully rather than treated like a simple software bug.
       </p>
       <p>
         Another challenge has been separating “communication works” from “measurement is valid.”
-        For both voltage and thermistor sensing, it was important to confirm not only that the
-        interface responded, but that the returned values matched the actual hardware path and
-        expected electrical behavior.
+        For both voltage and thermistor sensing, it was important to verify not only that the
+        interface responded, but that the returned values matched the expected electrical behavior
+        of the actual hardware path.
       </p>
     </section>
 
@@ -149,17 +148,19 @@
         <strong>Tools:</strong> STM32, Embedded C/C++, Arduino IDE, Multimeter, Serial Debug, Schematics/Datasheets
       </p>
       <p>
-        <strong>Skills:</strong> SPI, I2C, ADC Readout, CAN, Embedded Firmware, Battery Monitoring,
-        Thermistor Sensing, Board Bring-Up, Datasheet-Driven Debugging, Hardware/Firmware Integration
+        <strong>Skills:</strong> SPI, I2C, ADC Readout, CAN Message Integration, Embedded Firmware,
+        Battery Monitoring, Thermistor Sensing, Fault Bitmask Logic, State Machines,
+        Board Bring-Up, Datasheet-Driven Debugging, Hardware/Firmware Integration
       </p>
     </section>
 
     <section>
       <h2>Project Status</h2>
       <p>
-        This project is ongoing. I have completed bring-up for per-cell voltage readout and
-        multiplexed thermistor acquisition, and the next stage is integrating these sensing
-        results into higher-level board behavior and system-state logic.
+        This project is ongoing. I have completed sensor bring-up for cell-voltage and thermistor
+        monitoring and added early BMS protection logic for voltage and temperature faults. The next
+        stage is expanding state behavior, adding more system fault handling, and integrating the BMS
+        more tightly with higher-level core system control.
       </p>
     </section>
   </main>
