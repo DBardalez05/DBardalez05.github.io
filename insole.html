@@ -1,0 +1,315 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Insole Performance Feedback System | David Bardalez</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .project-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .project-hero {
+      margin-bottom: 2.5rem;
+    }
+
+    .project-hero img {
+      width: 100%;
+      border-radius: 18px;
+      display: block;
+      margin-top: 1rem;
+    }
+
+    .project-eyebrow {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-subtitle {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 800px;
+      margin-top: 1rem;
+    }
+
+    .project-meta {
+      margin-top: 1rem;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .project-section {
+      margin-top: 2.75rem;
+    }
+
+    .project-section h2 {
+      margin-bottom: 0.9rem;
+    }
+
+    .project-section p,
+    .project-section li {
+      line-height: 1.75;
+    }
+
+    .project-section ul {
+      padding-left: 1.25rem;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .media-card img {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .media-card p {
+      font-size: 0.95rem;
+      margin-top: 0.6rem;
+      opacity: 0.9;
+    }
+
+    .video-wrapper {
+      margin-top: 1rem;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #111;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-placeholder {
+      padding: 1.25rem;
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .highlight-card {
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .highlight-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>David Bardalez</h1>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#resume">Resume</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="project-page">
+    <section class="project-hero">
+      <p class="project-eyebrow">Embedded Systems · Wearable Sensing · Rapid Prototyping</p>
+      <h1>Smart Insole Performance Feedback System</h1>
+      <p class="project-subtitle">
+        A wearable smart insole prototype that used force-sensitive resistors and an ESP32
+        to classify heel strike, neutral stance, and forefoot loading in real time for
+        athletic form feedback.
+      </p>
+      <p class="project-meta">
+        <strong>Recognition:</strong> Babson Buildathon — 1st Place, AI-Enhanced Athletic Performance Track<br />
+        <strong>Timeline:</strong> Built and demonstrated within a 6-hour buildathon sprint
+      </p>
+
+      <img
+        src="assets/insole/hero-insole-esp.jpg"
+        alt="Smart insole prototype with pressure sensors connected to ESP32 electronics"
+      />
+    </section>
+
+    <section class="project-section">
+      <h2>Overview</h2>
+      <p>
+        This project explored how embedded sensing could be used to give athletes fast,
+        understandable feedback on foot-loading patterns during movement. Our team built a
+        prototype smart insole that measured pressure at key points of the foot and streamed
+        the data wirelessly for downstream visualization and coaching.
+      </p>
+      <p>
+        The goal was not to build a medical-grade biomechanics platform, but to create a
+        working wearable demo that could distinguish simple states such as heel-dominant
+        loading, neutral loading, and forefoot loading. That made it a good fit for
+        real-time running and athletic-performance feedback concepts.
+      </p>
+    </section>
+
+    <section class="project-section">
+      <h2>What I Built</h2>
+      <ul>
+        <li>Validated individual FSR sensors and tuned the readout setup to get usable signals.</li>
+        <li>Integrated the sensors with an ESP32 for embedded real-time data collection.</li>
+        <li>Implemented threshold-based logic to classify heel strike, neutral stance, and forefoot loading.</li>
+        <li>Brought up wireless data serving from the ESP32 so the frontend could read live data.</li>
+        <li>Transitioned the circuit from breadboard to a battery-powered protoboard for untethered use.</li>
+        <li>Adapted the sensing layout after sensor loss and limited resistor availability during prototyping.</li>
+      </ul>
+    </section>
+
+    <section class="project-section">
+      <h2>System Architecture</h2>
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <h3>Sensing</h3>
+          <p>
+            Four force-sensitive resistors were placed under key foot regions to capture
+            simple plantar loading patterns.
+          </p>
+        </div>
+        <div class="highlight-card">
+          <h3>Embedded Processing</h3>
+          <p>
+            An ESP32 handled analog sensor acquisition, basic signal conditioning, and
+            on-device state classification.
+          </p>
+        </div>
+        <div class="highlight-card">
+          <h3>Wireless Output</h3>
+          <p>
+            The board served live data wirelessly so an external interface could interpret
+            the state and visualize results.
+          </p>
+        </div>
+        <div class="highlight-card">
+          <h3>Wearable Prototype</h3>
+          <p>
+            The final prototype ran from portable power and was mounted on protoboard to
+            support a fully untethered demo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>Build Images</h2>
+      <div class="media-grid">
+        <div class="media-card">
+          <img
+            src="assets/insole/hero-insole-esp.jpg"
+            alt="Insole pressure sensors connected to ESP32 electronics"
+          />
+          <p>
+            Early integrated prototype showing the insole sensing layout connected to the ESP32.
+          </p>
+        </div>
+
+        <div class="media-card">
+          <img
+            src="assets/insole/insole-shoe-breadboard.jpg"
+            alt="Insole placed in shoe with wires connected to breadboard electronics"
+          />
+          <p>
+            In-shoe integration test used to validate the sensing layout and live embedded readout.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>Demo Video</h2>
+
+      <div class="video-wrapper" id="videoContainer">
+        <div class="video-placeholder">
+          Video placeholder — paste your YouTube embed link into the <code>videoEmbedUrl</code> variable.
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>Technical Highlights</h2>
+      <ul>
+        <li>Sensor validation and analog readout debugging under tight hardware constraints</li>
+        <li>Embedded integration of multiple FSRs with ESP32-based wireless data serving</li>
+        <li>Rapid state-classification logic for simple gait and loading pattern detection</li>
+        <li>Breadboard-to-protoboard transition for portable, battery-powered deployment</li>
+        <li>System-level troubleshooting across hardware, firmware, networking, and host-device communication</li>
+      </ul>
+    </section>
+
+    <section class="project-section">
+      <h2>Why It Matters</h2>
+      <p>
+        This project reflects the kind of engineering work I enjoy most: taking a sensing idea
+        from concept to live hardware demo by combining circuits, embedded programming, system
+        debugging, and practical design tradeoffs. It also reinforced how quickly a working
+        prototype can come together when hardware and software are integrated well.
+      </p>
+    </section>
+
+    <section class="project-section">
+      <h2>Tools and Skills</h2>
+      <p>
+        ESP32, embedded C/C++, analog sensor integration, wearable sensing, protoboard assembly,
+        breadboard prototyping, wireless data serving, rapid hardware debugging
+      </p>
+    </section>
+
+    <a class="back-link" href="projects.html">← Back to Projects</a>
+  </main>
+
+  <script>
+    // Paste a YouTube embed link here later, for example:
+    // const videoEmbedUrl = "https://www.youtube.com/embed/VIDEO_ID";
+    const videoEmbedUrl = "";
+
+    const videoContainer = document.getElementById("videoContainer");
+
+    if (videoEmbedUrl && videoEmbedUrl.trim() !== "") {
+      videoContainer.innerHTML = `
+        <iframe
+          src="${videoEmbedUrl}"
+          title="Smart Insole Demo Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      `;
+    }
+  </script>
+</body>
+</html>
+```
