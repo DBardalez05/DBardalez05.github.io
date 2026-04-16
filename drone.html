@@ -23,10 +23,10 @@
     <section id="project-page">
       <h2>Basketball Drone Vision</h2>
       <p>
-        Built a YOLOv8-based computer vision pipeline for real-time basketball shot detection,
-        with the current system detecting the ball and rim, tracking shot attempts, and counting
-        made baskets from live video. The project combines model training, custom inference logic,
-        and overlay/UI development as part of a future drone-based tracking system.
+        Built a YOLOv8-based computer vision pipeline for basketball shot detection, with the current
+        system detecting the ball and rim, tracking shot attempts, and counting made baskets from video.
+        This project is the perception foundation for a future drone-based tracking system that I am
+        developing in stages, starting with the vision pipeline before moving into physical drone integration.
       </p>
 
       <div class="project-hero-image">
@@ -35,7 +35,7 @@
           alt="Basketball drone vision detection overlay"
         />
         <p class="project-image-caption">
-          Detection overlay showing the real-time vision pipeline identifying the basketball and rim while tracking made shots.
+          Detection overlay showing the vision pipeline identifying the basketball and rim while tracking made shots.
         </p>
       </div>
 
@@ -47,27 +47,32 @@
     <section>
       <h2>Overview</h2>
       <p>
-        This project explores how computer vision can support a basketball-tracking drone
-        system. My current focus has been building the perception side first: detecting the
-        basketball and rim from video, determining whether a shot is made, and displaying
-        that result in real time through an on-screen overlay and shot counter.
+        This project explores how computer vision can support a basketball-tracking drone system.
+        My current focus has been building the perception side first: detecting the basketball and
+        rim from video, determining whether a shot is made, and displaying that result through an
+        on-screen overlay and shot counter.
       </p>
       <p>
-        Rather than treating the project as only a machine-learning model, I approached it as
-        a larger robotics subsystem. That meant not just training YOLOv8, but also writing the
-        logic needed to interpret imperfect detections over time, handle temporary ball loss,
-        and turn frame-by-frame outputs into a usable event signal for shot tracking.
+        Rather than treating the project as only a machine-learning model, I approached it as a
+        larger robotics subsystem. That meant not just training YOLOv8, but also writing the logic
+        needed to interpret imperfect detections over time, handle temporary ball loss, and turn
+        frame-by-frame outputs into a usable event signal for shot tracking.
+      </p>
+      <p>
+        The broader plan is to pair this perception pipeline with a physical basketball-tracking drone.
+        I am building toward that in stages by first validating the vision system, then testing on an
+        off-the-shelf drone/frame platform before eventually moving toward more custom hardware.
       </p>
     </section>
 
     <section>
       <h2>My Contributions</h2>
       <ul class="simple-list">
-        <li>Collected and labeled more than 1,000 video frames from basketball drone footage to train a custom YOLOv8 detector for the ball and rim.</li>
-        <li>Built the Python inference pipeline using Ultralytics YOLO and OpenCV for real-time detection, visualization, and shot-count overlay.</li>
+        <li>Collected and labeled more than 1,000 video frames from basketball footage to train a custom YOLOv8 detector for the ball and rim.</li>
+        <li>Built the Python inference pipeline using Ultralytics YOLO and OpenCV for detection, visualization, and shot-count overlay.</li>
         <li>Designed custom shot-detection logic that combined object detections with tracking and temporal state logic to determine made baskets.</li>
         <li>Implemented simple ball tracking and short-horizon prediction to maintain shot detection when the ball temporarily disappeared near the rim.</li>
-        <li>Prepared the perception pipeline for future drone integration while separately beginning the physical drone build at a larger prototype scale.</li>
+        <li>Structured the project as a staged robotics build, with the current focus on perception and later integration planned around an initial stock-frame drone platform.</li>
       </ul>
     </section>
 
@@ -75,30 +80,31 @@
       <h2>Technical Highlights</h2>
       <p>
         A major part of the work involved creating a usable custom dataset from basketball
-        drone footage and training a YOLOv8 model to detect the two key classes in the system:
+        footage and training a YOLOv8 model to detect the two key classes in the system:
         the basketball and the rim. Rim detection is currently strong, while ball detection is
         harder because the ball is smaller, faster, and more likely to blur or disappear during
         critical parts of the shot.
       </p>
       <p>
-        I also built the real-time inference pipeline in Python using Ultralytics and OpenCV.
+        I also built the inference pipeline in Python using Ultralytics and OpenCV.
         Beyond displaying bounding boxes, the system includes a live UI overlay that tracks shot
         makes and displays the current count during playback. That made the project more than a
-        detection demo; it became a usable event-driven vision system.
+        detection demo; it became an event-driven vision system.
       </p>
       <p>
         To determine whether a shot was made, I wrote custom logic on top of the detector rather
-        than relying on object detections alone. The pipeline tracks the ball over time, predicts
-        its position briefly when detections drop out, and uses a finite-state shot-detection
+        than relying on detections alone. The pipeline tracks the ball over time, predicts its
+        position briefly when detections drop out, and uses a finite-state shot-detection
         process with multiple spatial gates around the rim to decide whether the ball has passed
         through the hoop. This was especially important because the ball often becomes briefly
         undetectable while interacting with the rim or net.
       </p>
       <p>
-        The current shot-detection system works roughly 80% of the time in the cases I have
-        tested so far. It performs well enough to validate the overall approach, but still needs
-        broader testing across different scenarios, camera views, and backgrounds before it can
-        be considered robust.
+        I trained an initial YOLOv8 model to detect the basketball and rim, and the current version
+        performs well enough to validate the overall perception approach. One of the next steps is
+        retraining on broader cases, since the model appears somewhat overfit to the data and testing
+        conditions used so far. My machine learning coursework is also helping shape how I approach
+        that next round of training, evaluation, and improvement.
       </p>
     </section>
 
@@ -112,11 +118,11 @@
         logic that can tolerate short gaps and still interpret the shot correctly.
       </p>
       <p>
-        Another challenge has been designing for future real-world use rather than just offline
-        success on a few clips. To be useful on a drone, the pipeline will need to hold up across
-        more viewing angles, lighting conditions, and backgrounds while still running in a way
-        that supports real-time tracking. The current phase has focused on proving the perception
-        approach before moving toward tighter integration with the flight platform.
+        Another challenge has been building the project in the right order. Before designing
+        more custom drone hardware, I first need to validate that the perception pipeline is
+        strong enough to justify tighter integration. That is why the current phase focuses on
+        model performance, retraining, and staged testing before moving toward a more custom
+        flight platform.
       </p>
     </section>
 
@@ -128,17 +134,18 @@
       <p>
         <strong>Skills:</strong> Computer Vision, Dataset Labeling, Real-Time Inference,
         Object Tracking, Shot-Detection Logic, UI Overlay Development, Model Evaluation,
-        System Integration Planning
+        Robotics System Planning
       </p>
     </section>
 
     <section>
       <h2>Project Status</h2>
       <p>
-        This project is ongoing. The current system can detect the ball and rim, display a live
-        shot counter, and identify made baskets with promising early performance, while current
-        work continues on robustness testing and the larger drone build that will eventually host
-        the vision system.
+        This project is ongoing. The current vision pipeline can detect the ball and rim, display
+        a live shot counter, and identify made baskets with promising early results. Current work
+        is focused on improving robustness by retraining the model on broader cases, reducing
+        overfitting, and continuing evaluation before moving toward tighter integration with a
+        physical drone platform.
       </p>
     </section>
   </main>

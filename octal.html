@@ -23,9 +23,10 @@
     <section id="project-page">
       <h2>OCTAL Student Research Team</h2>
       <p>
-        Developed embedded battery-management firmware for a student heavy-lift firefighting drone,
-        focused on STM32-based sensor bring-up, per-cell voltage monitoring, thermistor acquisition,
-        pack-voltage calculation, and early BMS fault/state logic.
+        OCTAL is a student research team developing a heavy-lift firefighting octocopter, with the broader platform being built toward a human-carrying configuration.
+      </p>
+      <p>
+        Developed embedded battery-management firmware focused on STM32-based sensor bring-up, per-cell voltage monitoring, thermistor acquisition, pack-voltage calculation, early BMS fault/state logic, and ongoing current-sensing integration.
       </p>
 
       <div class="button-row">
@@ -47,15 +48,16 @@
     <section>
       <h2>Overview</h2>
       <p>
-        As part of the OCTAL Student Research Team, I work on embedded systems for battery monitoring
-        and protection in a heavy-lift firefighting drone platform. My work has centered on building
-        the firmware foundation needed for the battery-management system to sense battery conditions
-        reliably and respond when readings leave safe operating limits.
+        As part of the OCTAL Student Research Team, I work on embedded battery-monitoring and protection
+        firmware for a heavy-lift firefighting drone platform. My work has focused on building the
+        firmware foundation needed for the battery-management system to sense pack conditions reliably
+        and respond when readings move outside safe operating limits.
       </p>
       <p>
-        This project combines hardware-aware debugging with firmware development. I first brought up
-        the communication and sensing paths for cell voltages and thermistors, then extended that work
-        into basic BMS behavior by adding threshold checks, a fault bitmask, and IDLE/FAULTED state logic.
+        This project sits at the hardware-firmware boundary. I first brought up the sensing paths for
+        cell voltages and thermistors, then extended that work into early BMS behavior by adding threshold
+        checks, a fault bitmask, and IDLE/FAULTED state logic. Current work is focused on bringing up
+        current measurement and validating the conversion path from raw readings to usable pack-current data.
       </p>
     </section>
 
@@ -63,13 +65,14 @@
       <h2>My Contributions</h2>
       <ul class="simple-list">
         <li>Modified and debugged STM32 firmware for battery-monitoring bring-up on the OCTAL BMS board.</li>
-        <li>Brought up SPI communication with the ADBMS battery-monitoring path and verified valid register readback behavior.</li>
+        <li>Brought up SPI communication with the battery-monitoring path and verified valid register readback behavior.</li>
         <li>Implemented per-cell voltage readout and pack-voltage summation from battery-monitor IC register data.</li>
         <li>Traced the thermistor sensing path from schematics and implemented multiplexed thermistor readout using STM32-controlled MAX14661 muxes and onboard ADC measurement.</li>
-        <li>Added thermistor voltage-to-temperature conversion using the thermistor transfer function supplied by the hardware team.</li>
-        <li>Implemented basic BMS fault detection for undervoltage, overvoltage, undertemperature, overtemperature, mux faults, PEC faults, and ADBMS communication faults.</li>
+        <li>Added thermistor voltage-to-temperature conversion using the transfer function supplied by the hardware team.</li>
+        <li>Implemented early BMS fault detection for undervoltage, overvoltage, undertemperature, overtemperature, mux faults, PEC faults, and ADBMS communication faults.</li>
         <li>Built early BMS state logic that continuously monitors readings in IDLE and transitions to FAULTED when unsafe conditions are detected.</li>
-        <li>Structured firmware outputs around the system CAN message definitions to support later integration with the rest of the drone electrical architecture.</li>
+        <li>Structured firmware outputs around system CAN message definitions to support broader integration with the drone electrical architecture.</li>
+        <li>Ongoing: bringing up current sensing, debugging conversion behavior, and validating pack-current interpretation against expected hardware behavior.</li>
       </ul>
     </section>
 
@@ -78,13 +81,13 @@
       <p>
         A major part of this work was establishing reliable communication between an STM32
         microcontroller and the battery-monitoring path over SPI. Before higher-level BMS behavior
-        could be trusted, I had to confirm that register reads were valid, that returned values were
-        physically meaningful, and that the battery-monitor interface was behaving consistently.
+        could be trusted, I had to verify that register reads were valid, that returned values were
+        physically meaningful, and that the battery-monitor interface behaved consistently on real hardware.
       </p>
       <p>
         On the voltage-sensing side, I implemented firmware to read per-cell voltages from the battery
         monitor and calculate overall pack voltage by summing the cell measurements. This made it
-        possible to track both individual cell health and full-pack behavior from the firmware layer.
+        possible to track both individual cell behavior and full-pack voltage from the firmware layer.
       </p>
       <p>
         I also implemented the thermistor sensing path by following the hardware architecture from the
@@ -94,11 +97,16 @@
         raw ADC values into usable temperature data.
       </p>
       <p>
-        After the sensing paths were validated, I extended the firmware into a basic BMS monitor.
+        After the sensing paths were validated, I extended the firmware into an early BMS monitor.
         The board continuously evaluates minimum and maximum cell voltage and temperature against
         operating thresholds, sets fault bits when unsafe conditions are detected, and transitions
-        from IDLE to FAULTED when the pack moves outside allowed operating conditions. This was my
-        first step from board bring-up into actual protection-oriented embedded firmware behavior.
+        from IDLE to FAULTED when the pack moves outside allowed operating conditions.
+      </p>
+      <p>
+        Current work is focused on current sensing, which has required debugging the conversion path
+        from raw measurements to interpreted pack current. That has meant separating basic readback
+        from valid physical interpretation and checking whether unexpected values come from hardware,
+        scaling, sign conventions, or firmware-side conversion logic.
       </p>
 
       <div class="project-image-grid">
@@ -136,8 +144,8 @@
       </p>
       <p>
         Another challenge has been separating “communication works” from “measurement is valid.”
-        For both voltage and thermistor sensing, it was important to verify not only that the
-        interface responded, but that the returned values matched the expected electrical behavior
+        For voltage, thermistor, and now current sensing, it has been important to verify not only
+        that interfaces respond, but that the returned values match the expected electrical behavior
         of the actual hardware path.
       </p>
     </section>
@@ -149,18 +157,18 @@
       </p>
       <p>
         <strong>Skills:</strong> SPI, I2C, ADC Readout, CAN Message Integration, Embedded Firmware,
-        Battery Monitoring, Thermistor Sensing, Fault Bitmask Logic, State Machines,
-        Board Bring-Up, Datasheet-Driven Debugging, Hardware/Firmware Integration
+        Battery Monitoring, Thermistor Sensing, Current-Sensing Bring-Up, Fault Bitmask Logic,
+        State Machines, Board Bring-Up, Datasheet-Driven Debugging, Hardware/Firmware Integration
       </p>
     </section>
 
     <section>
       <h2>Project Status</h2>
       <p>
-        This project is ongoing. I have completed sensor bring-up for cell-voltage and thermistor
-        monitoring and added early BMS protection logic for voltage and temperature faults. The next
-        stage is expanding state behavior, adding more system fault handling, and integrating the BMS
-        more tightly with higher-level core system control.
+        This project is ongoing. I have completed bring-up for cell-voltage and thermistor monitoring
+        and added early BMS protection logic for voltage and temperature faults. Current work is focused
+        on current-sensing validation, including debugging conversion behavior and making sure interpreted
+        pack-current values match expected hardware behavior before expanding the BMS further.
       </p>
     </section>
   </main>

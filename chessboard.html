@@ -23,10 +23,10 @@
     <section id="project-page">
       <h2>Masterpiece Chessboard Hall-Effect Sensing System</h2>
       <p>
-        Designed a scalable Hall-effect sensing system for an automated chessboard using
-        custom sensor and I2C expander PCBs, embedded firmware, and full-board signal
-        integration. The system detected square occupancy in real time, generated a board-state
-        matrix, and transmitted that data over serial to a higher-level game system.
+        Designed the sensing subsystem for an automated chessboard using custom Hall-effect sensor
+        and I2C expander PCBs, embedded firmware, and full-board signal integration. The system
+        detected square occupancy in real time, assembled a board-state matrix, and transmitted
+        that data over serial to the larger game system.
       </p>
 
       <div class="project-hero-image">
@@ -55,16 +55,21 @@
     <section>
       <h2>Overview</h2>
       <p>
-        This project was part of a larger automated chessboard system, where my work focused on
-        the electronics and firmware needed to detect board occupancy in real time. The goal was
-        to build a sensing architecture that could reliably determine which squares were occupied
-        and provide that information to the rest of the system for move tracking.
+        This project was the sensing subsystem of a larger automated human-vs-computer chessboard,
+        where my work focused on the electronics and firmware needed to detect board occupancy in
+        real time. The goal was to build a sensing architecture that could reliably determine which
+        squares were occupied and provide that information to the rest of the system for move tracking.
       </p>
       <p>
-        Rather than treating the board as a small proof of concept, I approached it as a scalable
-        embedded sensing system. That meant designing custom PCBs, building the readout
-        architecture around I2C expanders, writing firmware to assemble the board-state matrix,
-        and debugging the electrical and physical integration challenges that appeared at full size.
+        I approached the board as a scalable embedded sensing system rather than a small proof of
+        concept. That meant designing custom PCBs, building the readout architecture around MCP23017
+        I2C expanders, writing firmware to assemble the board-state matrix, and debugging the
+        electrical and physical integration challenges that appeared at full size.
+      </p>
+      <p>
+        To scale the design across the full board, the sensing system was split into four quadrant
+        PCBs and paired with expander boards for organized readout. That made full-board integration,
+        interconnect routing, and bring-up much more challenging than validating only a small test section.
       </p>
       <p>
         You can also view the full team project site here:
@@ -103,9 +108,10 @@
       <h2>My Contributions</h2>
       <ul class="simple-list">
         <li>Designed custom Hall-effect sensor and I2C expander PCBs to scale occupancy sensing across the chessboard.</li>
-        <li>Built the embedded firmware that scanned the sensing hardware, assembled the board-state matrix, and sent that matrix over serial to the larger system.</li>
-        <li>Developed and debugged full-system integration including I2C communication, addressing, wiring, board assembly, and readout validation.</li>
-        <li>Brought the sensing system to working functionality and helped identify that final board-level inconsistency came from mechanical wood bowing rather than the core sensing architecture itself.</li>
+        <li>Built embedded firmware that scanned the sensing hardware, assembled the board-state matrix, and sent that matrix over serial to the larger system.</li>
+        <li>Debugged full-system integration across I2C communication, addressing, wiring, board assembly, and readout validation.</li>
+        <li>Diagnosed a board-level communication failure on one I2C expander path, traced it to incorrect SDA/SCL routing, and recovered functionality through hardware rework rather than a full PCB respin.</li>
+        <li>Helped determine that the remaining board-level inconsistency came from mechanical wood bowing rather than the core sensing architecture itself.</li>
         <li>Continued iterating on the design through a cleaner PCB revision and evaluation of more sensitive Hall-effect sensors to improve robustness and reduce wiring complexity.</li>
       </ul>
     </section>
@@ -128,9 +134,9 @@
       <p>
         The project also required substantial bring-up and debugging work. I worked across PCB
         design, firmware, wiring, addressing, and board integration to verify that the system could
-        read the board consistently at larger scale. This was important because the challenge was
-        not just getting a single sensor working, but getting a dense network of sensing hardware
-        to behave as one coherent embedded system.
+        read the board consistently at larger scale. One of the key debugging steps involved tracing
+        a communication issue on an MCP23017 I2C expander path during board bring-up, confirming the
+        routing problem electrically, and reworking the affected hardware to restore consistent readout.
       </p>
       <p>
         In its current phase, I am redesigning portions of the system to reduce wiring complexity
@@ -172,9 +178,10 @@
       <h2>Project Status</h2>
       <p>
         The sensing architecture achieved working functionality and full-board occupancy readout,
-        with final board-level consistency limited by mechanical deflection in the chessboard
-        structure. The project is still being improved through PCB redesign, cleaner integration,
-        and sensor-selection changes aimed at making the system more robust in the final build.
+        with final consistency limited by mechanical deflection in the chessboard structure rather
+        than the core electronics or firmware. The project is still being improved through PCB
+        redesign, cleaner integration, and sensor-selection changes aimed at making the system
+        more robust in the final build.
       </p>
     </section>
   </main>

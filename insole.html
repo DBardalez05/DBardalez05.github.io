@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,12 +97,6 @@
       border: 0;
     }
 
-    .video-placeholder {
-      padding: 1.25rem;
-      text-align: center;
-      opacity: 0.8;
-    }
-
     .highlight-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -148,9 +141,9 @@
       <p class="project-eyebrow">Embedded Systems · Wearable Sensing · Rapid Prototyping</p>
       <h1>Smart Insole Performance Feedback System</h1>
       <p class="project-subtitle">
-        A wearable smart insole prototype that used force-sensitive resistors and an ESP32
-        to classify heel strike, neutral stance, and forefoot loading in real time for
-        athletic form feedback.
+        Built a wearable smart insole prototype that used force-sensitive resistors and an ESP32
+        to classify heel strike, neutral stance, and forefoot loading in real time for athletic
+        form feedback.
       </p>
       <p class="project-meta">
         <strong>Recognition:</strong> Babson Buildathon — 1st Place, AI-Enhanced Athletic Performance Track<br />
@@ -168,26 +161,26 @@
       <p>
         This project explored how embedded sensing could be used to give athletes fast,
         understandable feedback on foot-loading patterns during movement. Our team built a
-        prototype smart insole that measured pressure at key points of the foot and streamed
+        smart insole prototype that measured pressure at key points of the foot and streamed
         the data wirelessly for downstream visualization and coaching.
       </p>
       <p>
         The goal was not to build a medical-grade biomechanics platform, but to create a
         working wearable demo that could distinguish simple states such as heel-dominant
-        loading, neutral loading, and forefoot loading. That made it a good fit for
-        real-time running and athletic-performance feedback concepts.
+        loading, neutral loading, and forefoot loading. That made it a strong fit for
+        real-time athletic feedback and rapid prototyping under tight time constraints.
       </p>
     </section>
 
     <section class="project-section">
       <h2>What I Built</h2>
       <ul>
-        <li>Validated individual FSR sensors and tuned the readout setup to get usable signals.</li>
-        <li>Integrated the sensors with an ESP32 for embedded real-time data collection.</li>
+        <li>Validated individual FSR sensors and tuned the analog readout setup to get usable signals.</li>
+        <li>Integrated the sensing hardware with an ESP32 for embedded real-time data collection.</li>
         <li>Implemented threshold-based logic to classify heel strike, neutral stance, and forefoot loading.</li>
         <li>Brought up wireless data serving from the ESP32 so the frontend could read live data.</li>
         <li>Transitioned the circuit from breadboard to a battery-powered protoboard for untethered use.</li>
-        <li>Adapted the sensing layout after sensor loss and limited resistor availability during prototyping.</li>
+        <li>Adapted the sensing layout during prototyping after sensor loss and limited resistor availability.</li>
       </ul>
     </section>
 
@@ -252,12 +245,7 @@
 
     <section class="project-section">
       <h2>Demo Video</h2>
-
-      <div class="video-wrapper" id="videoContainer">
-        <div class="video-placeholder">
-          Video placeholder — paste your YouTube embed link into the <code>videoEmbedUrl</code> variable.
-        </div>
-      </div>
+      <div class="video-wrapper" id="videoContainer"></div>
     </section>
 
     <section class="project-section">
@@ -265,7 +253,7 @@
       <ul>
         <li>Sensor validation and analog readout debugging under tight hardware constraints</li>
         <li>Embedded integration of multiple FSRs with ESP32-based wireless data serving</li>
-        <li>Rapid state-classification logic for simple gait and loading pattern detection</li>
+        <li>Threshold-based state classification for simple gait and loading-pattern detection</li>
         <li>Breadboard-to-protoboard transition for portable, battery-powered deployment</li>
         <li>System-level troubleshooting across hardware, firmware, networking, and host-device communication</li>
       </ul>
@@ -284,8 +272,11 @@
     <section class="project-section">
       <h2>Tools and Skills</h2>
       <p>
-        ESP32, embedded C/C++, analog sensor integration, wearable sensing, protoboard assembly,
-        breadboard prototyping, wireless data serving, rapid hardware debugging
+        <strong>Tools:</strong> ESP32, Embedded C/C++, Breadboard Prototyping, Protoboard Assembly
+      </p>
+      <p>
+        <strong>Skills:</strong> Analog Sensor Integration, Wearable Sensing, Wireless Data Serving,
+        Real-Time Classification Logic, Rapid Hardware Debugging, Embedded Prototyping
       </p>
     </section>
 
@@ -293,10 +284,7 @@
   </main>
 
   <script>
-    // Paste a YouTube embed link here later, for example:
-    // const videoEmbedUrl = "https://www.youtube.com/embed/VIDEO_ID";
     const videoEmbedUrl = "https://www.youtube.com/embed/f4qFlmR312Q";
-
     const videoContainer = document.getElementById("videoContainer");
 
     if (videoEmbedUrl && videoEmbedUrl.trim() !== "") {
@@ -312,4 +300,3 @@
   </script>
 </body>
 </html>
-```
