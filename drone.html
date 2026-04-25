@@ -9,12 +9,15 @@
 <body>
   <header>
     <nav>
-      <h1>David Bardalez</h1>
+      <a class="brand" href="index.html#home" aria-label="David Bardalez home">
+        <span class="brand-mark">DB</span>
+        <span>David Bardalez</span>
+      </a>
       <ul>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="index.html#resume">Resume</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="nav-cta" href="mailto:dbardalez@olin.edu">Email Me</a></li>
       </ul>
     </nav>
   </header>
@@ -23,10 +26,9 @@
     <section id="project-page">
       <h2>Basketball Drone Vision</h2>
       <p>
-        Built a YOLOv8-based computer vision pipeline for basketball shot detection, with the current
-        system detecting the ball and rim, tracking shot attempts, and counting made baskets from video.
-        This project is the perception foundation for a future drone-based tracking system that I am
-        developing in stages, starting with the vision pipeline before moving into physical drone integration.
+        Built a YOLOv8-based computer vision pipeline for basketball shot detection. The current
+        system detects the ball and rim, tracks shot attempts, and counts made baskets from video
+        as the perception foundation for a future drone-based tracking system.
       </p>
 
       <div class="project-hero-image">

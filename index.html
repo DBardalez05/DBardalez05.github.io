@@ -3,155 +3,223 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>David Bardalez Portfolio</title>
+  <title>David Bardalez | Hardware, Embedded, Robotics</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <nav>
-      <h1>David Bardalez</h1>
+      <a class="brand" href="#home" aria-label="David Bardalez home">
+        <span class="brand-mark">DB</span>
+        <span>David Bardalez</span>
+      </a>
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a class="nav-cta" href="mailto:dbardalez@olin.edu">Email Me</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="home">
-      <p class="eyebrow">David Bardalez · Olin College of Engineering</p>
-      <h2>Embedded, Hardware, and Vision Projects</h2>
-      <p>
-        I’m an Electrical and Computer Engineering student at Olin College of Engineering
-        focused on embedded systems, PCB design, sensing hardware, battery systems,
-        and computer vision. I enjoy building real hardware-software systems for
-        automotive, sensing, and autonomous applications.
-      </p>
+    <section id="home" class="hero-section">
+      <div class="hero-shell">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Electrical & Computer Engineering / Olin College</p>
+          <h1>Hardware, embedded firmware, and robotics systems built past the diagram stage.</h1>
+          <p class="hero-lede">
+            I design and debug real hardware-software systems: PCBs, sensor bring-up,
+            embedded firmware, battery monitoring, and perception pipelines for robotics
+            and vehicle projects.
+          </p>
 
-      <div class="button-row">
-        <a class="button" href="projects.html">View Projects</a>
-        <a class="button secondary" href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+          <div class="button-row">
+            <a class="button" href="projects.html">View Engineering Work</a>
+            <a class="button secondary" href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">Open Resume</a>
+          </div>
+
+          <div class="hero-signal-row" aria-label="Core engineering strengths">
+            <span>PCB Layout</span>
+            <span>STM32 / ESP32</span>
+            <span>Sensor Bring-Up</span>
+            <span>Robotics</span>
+          </div>
+        </div>
+
+        <div class="hero-lab reveal" aria-label="Featured engineering work preview">
+          <div class="lab-grid">
+            <a class="lab-card lab-card-large" href="formula.html" aria-label="Formula SAE PCB project">
+              <img src="assets/formula/formula-board-render.png" alt="Formula SAE precharge and discharge PCB render" />
+              <div>
+                <span>PCB / EV Safety</span>
+                <strong>400V-class precharge control board</strong>
+              </div>
+            </a>
+            <a class="lab-card" href="octal.html" aria-label="OCTAL BMS firmware project">
+              <img src="assets/octal/bms_setup.jpg" alt="OCTAL BMS board bring-up setup" />
+              <div>
+                <span>Firmware</span>
+                <strong>BMS sensing bring-up</strong>
+              </div>
+            </a>
+            <a class="lab-card" href="chessboard.html" aria-label="Chessboard sensing project">
+              <img src="assets/chessboard/chessboard-system.jpg" alt="Hall-effect chessboard sensing system" />
+              <div>
+                <span>Sensing</span>
+                <strong>Hall-effect board state detection</strong>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="featured-projects">
-      <h2>Featured Projects</h2>
+    <section id="featured-projects" class="reveal">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Selected Work</p>
+          <h2>Projects that make the engineering easy to scan.</h2>
+        </div>
+        <p>Each project points to the role I played, the technical decisions I made, and what worked on real hardware or software.</p>
+      </div>
 
-      <div class="project-grid">
-        <div class="project-card">
+      <div class="project-grid featured-grid">
+        <article class="project-card project-card-featured">
           <img
             class="project-card-thumb"
             src="assets/formula/formula-board-render.png"
             alt="Formula SAE precharge and discharge PCB render"
           />
           <div class="project-card-content">
+            <div class="project-tag-row">
+              <span>PCB Design</span>
+              <span>EV Safety</span>
+              <span>KiCad</span>
+            </div>
             <h3>Formula SAE Precharge/Discharge PCB</h3>
             <p>
-              Designed a 400V-class precharge/discharge control PCB for a Formula SAE EV tractive
-              system, including staged relay sequencing, safety/interlock logic, and HV/LV-aware layout.
+              Designed the control board for staged high-voltage startup, relay sequencing,
+              threshold detection, safe defaults, and HV/LV-aware layout.
             </p>
             <a href="formula.html">Project Details</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
+        <article class="project-card">
           <img
             class="project-card-thumb"
             src="assets/octal/bms_setup.jpg"
             alt="OCTAL BMS board bring-up setup with STM32 board, ST-LINK, and laptop connection"
           />
           <div class="project-card-content">
+            <div class="project-tag-row">
+              <span>STM32</span>
+              <span>BMS Firmware</span>
+            </div>
             <h3>OCTAL Student Research Team</h3>
             <p>
-              Developed STM32-based battery-management firmware for a student firefighting drone, including
-              SPI-based cell-voltage readout, pack-voltage calculation, thermistor acquisition through
-              I2C-controlled muxes, and early BMS fault/state logic.
+              Brought up battery-monitoring firmware: SPI cell readings, I2C muxed thermistors,
+              ADC conversion, pack calculations, and early fault/state logic.
             </p>
             <a href="octal.html">Project Details</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
+        <article class="project-card">
           <img
             class="project-card-thumb"
             src="assets/chessboard/chessboard-system.jpg"
             alt="Masterpiece Chessboard Hall-effect sensing system"
           />
           <div class="project-card-content">
-            <h3>Masterpiece Chessboard Hall-Effect Sensing System</h3>
+            <div class="project-tag-row">
+              <span>Custom PCB</span>
+              <span>Hall Sensors</span>
+            </div>
+            <h3>Masterpiece Chessboard Sensing System</h3>
             <p>
-              Designed a scalable Hall-effect sensing system for an automated chessboard using custom PCBs,
-              embedded firmware, and I2C-based readout to generate real-time board occupancy data.
+              Built a scalable Hall-effect sensing architecture using custom boards,
+              embedded readout, and I2C expansion for real-time occupancy data.
             </p>
             <a href="chessboard.html">Project Details</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
+        <article class="project-card">
           <img
             class="project-card-thumb"
             src="assets/drone/drone-detection-overlay.png"
             alt="Basketball drone vision detection overlay"
           />
           <div class="project-card-content">
+            <div class="project-tag-row">
+              <span>YOLOv8</span>
+              <span>OpenCV</span>
+            </div>
             <h3>Basketball Drone Vision</h3>
             <p>
-              Built a YOLOv8-based real-time vision pipeline for basketball shot detection, combining ball
-              and rim detection with custom tracking and event logic for made-shot counting.
+              Trained and integrated a detection pipeline that tracks the ball and rim,
+              handles short detection gaps, and turns frames into made-shot events.
             </p>
             <a href="drone.html">Project Details</a>
           </div>
-        </div>
-
-        <div class="project-card">
-          <img
-            class="project-card-thumb"
-            src="assets/insole/hero-insole-esp.jpg"
-            alt="Smart insole prototype with pressure sensors connected to ESP32 electronics"
-          />
-          <div class="project-card-content">
-            <h3>Smart Insole Performance Feedback System</h3>
-            <p>
-              Built a wearable smart insole prototype using force-sensitive resistors and an ESP32 to classify
-              heel strike, neutral stance, and forefoot loading in real time, providing live athletic form feedback
-              through a wireless connected interface.
-            </p>
-            <a href="insole.html">Project Details</a>
-          </div>
-        </div>
+        </article>
       </div>
 
-      <div class="button-row">
+      <div class="button-row centered-row">
         <a class="button secondary" href="projects.html">View All Projects</a>
       </div>
     </section>
 
-    <section id="resume">
-      <h2>Resume</h2>
-      <p>View my resume for experience, coursework, and additional technical work.</p>
-      <p>
+    <section id="resume" class="resume-contact-shell reveal">
+      <div>
+          <p class="eyebrow">Resume & Contact</p>
+        <h2>Resume and contact.</h2>
+        <p>
+          For roles involving hardware, embedded systems, robotics, or EV systems,
+          my resume has the compact version of the project work shown here.
+        </p>
+      </div>
+      <div class="contact-actions">
         <a class="button" href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">Open Resume PDF</a>
-      </p>
+        <a class="button secondary" href="mailto:dbardalez@olin.edu">Email Me</a>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:dbardalez@olin.edu">dbardalez@olin.edu</a></p>
-      <p>
-        LinkedIn:
+    <section id="contact" class="contact-grid reveal">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Let’s build something real.</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:dbardalez@olin.edu">dbardalez@olin.edu</a>
         <a href="https://www.linkedin.com/in/david-bardalez" target="_blank" rel="noopener noreferrer">
           linkedin.com/in/david-bardalez
         </a>
-      </p>
-      <p>
-        GitHub:
         <a href="https://github.com/DBardalez05" target="_blank" rel="noopener noreferrer">
           github.com/DBardalez05
         </a>
-      </p>
+      </div>
     </section>
   </main>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  </script>
 </body>
 </html>

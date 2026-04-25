@@ -9,12 +9,15 @@
 <body>
   <header>
     <nav>
-      <h1>David Bardalez</h1>
+      <a class="brand" href="index.html#home" aria-label="David Bardalez home">
+        <span class="brand-mark">DB</span>
+        <span>David Bardalez</span>
+      </a>
       <ul>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="index.html#resume">Resume</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="nav-cta" href="mailto:dbardalez@olin.edu">Email Me</a></li>
       </ul>
     </nav>
   </header>
@@ -24,9 +27,9 @@
       <h2>Formula SAE Precharge/Discharge PCB</h2>
       <p>
         Designed a 400V-class precharge/discharge control PCB for a Formula SAE EV tractive
-        system to safely charge the inverter DC-link capacitor before full pack connection.
-        The board manages staged relay sequencing, high-voltage threshold detection, and
-        safety/interlock logic to support predictable startup and shutdown behavior.
+        system. The board coordinates staged relay sequencing, high-voltage threshold detection,
+        and safety logic so the inverter DC-link capacitor charges in a controlled way before
+        full pack connection.
       </p>
 
       <div class="project-hero-image">

@@ -5,140 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smart Insole Performance Feedback System | David Bardalez</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .project-page {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 4rem;
-    }
-
-    .project-hero {
-      margin-bottom: 2.5rem;
-    }
-
-    .project-hero img {
-      width: 100%;
-      border-radius: 18px;
-      display: block;
-      margin-top: 1rem;
-    }
-
-    .project-eyebrow {
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.75;
-      margin-bottom: 0.75rem;
-    }
-
-    .project-subtitle {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      max-width: 800px;
-      margin-top: 1rem;
-    }
-
-    .project-meta {
-      margin-top: 1rem;
-      font-size: 0.98rem;
-      line-height: 1.7;
-    }
-
-    .project-section {
-      margin-top: 2.75rem;
-    }
-
-    .project-section h2 {
-      margin-bottom: 0.9rem;
-    }
-
-    .project-section p,
-    .project-section li {
-      line-height: 1.75;
-    }
-
-    .project-section ul {
-      padding-left: 1.25rem;
-    }
-
-    .media-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-      margin-top: 1rem;
-    }
-
-    .media-card img {
-      width: 100%;
-      border-radius: 16px;
-      display: block;
-    }
-
-    .media-card p {
-      font-size: 0.95rem;
-      margin-top: 0.6rem;
-      opacity: 0.9;
-    }
-
-    .video-wrapper {
-      margin-top: 1rem;
-      border-radius: 18px;
-      overflow: hidden;
-      background: #111;
-      aspect-ratio: 16 / 9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .video-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .highlight-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .highlight-card {
-      padding: 1rem 1.1rem;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      background: rgba(255,255,255,0.02);
-    }
-
-    .highlight-card h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-top: 2rem;
-    }
-  </style>
 </head>
 <body>
   <header>
     <nav>
-      <h1>David Bardalez</h1>
+      <a class="brand" href="index.html#home" aria-label="David Bardalez home">
+        <span class="brand-mark">DB</span>
+        <span>David Bardalez</span>
+      </a>
       <ul>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="index.html#resume">Resume</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="nav-cta" href="mailto:dbardalez@olin.edu">Email Me</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="project-page">
     <section class="project-hero">
-      <p class="project-eyebrow">Embedded Systems · Wearable Sensing · Rapid Prototyping</p>
+      <p class="project-eyebrow">Embedded Systems / Wearable Sensing / Rapid Prototyping</p>
       <h1>Smart Insole Performance Feedback System</h1>
       <p class="project-subtitle">
         Built a wearable smart insole prototype that used force-sensitive resistors and an ESP32
@@ -146,7 +32,7 @@
         form feedback.
       </p>
       <p class="project-meta">
-        <strong>Recognition:</strong> Babson Buildathon — 1st Place, AI-Enhanced Athletic Performance Track<br />
+        <strong>Recognition:</strong> Babson Buildathon - 1st Place, AI-Enhanced Athletic Performance Track<br />
         <strong>Timeline:</strong> Built and demonstrated within a 6-hour buildathon sprint
       </p>
 
@@ -280,7 +166,7 @@
       </p>
     </section>
 
-    <a class="back-link" href="projects.html">← Back to Projects</a>
+    <a class="back-link" href="projects.html">Back to Projects</a>
   </main>
 
   <script>

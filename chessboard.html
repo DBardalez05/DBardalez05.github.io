@@ -9,12 +9,15 @@
 <body>
   <header>
     <nav>
-      <h1>David Bardalez</h1>
+      <a class="brand" href="index.html#home" aria-label="David Bardalez home">
+        <span class="brand-mark">DB</span>
+        <span>David Bardalez</span>
+      </a>
       <ul>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="index.html#resume">Resume</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="nav-cta" href="mailto:dbardalez@olin.edu">Email Me</a></li>
       </ul>
     </nav>
   </header>
@@ -25,8 +28,8 @@
       <p>
         Designed the sensing subsystem for an automated chessboard using custom Hall-effect sensor
         and I2C expander PCBs, embedded firmware, and full-board signal integration. The system
-        detected square occupancy in real time, assembled a board-state matrix, and transmitted
-        that data over serial to the larger game system.
+        detects square occupancy in real time, assembles a board-state matrix, and sends that data
+        over serial to the larger game system.
       </p>
 
       <div class="project-hero-image">

@@ -9,37 +9,57 @@
 <body>
   <header>
     <nav>
-      <h1>David Bardalez</h1>
+      <a class="brand" href="index.html#home" aria-label="David Bardalez home">
+        <span class="brand-mark">DB</span>
+        <span>David Bardalez</span>
+      </a>
       <ul>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="index.html#resume">Resume</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="nav-cta" href="mailto:dbardalez@olin.edu">Email Me</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="projects-home">
-      <h2>Projects</h2>
+    <section id="projects-home" class="page-hero reveal">
+      <p class="eyebrow">Project Archive</p>
+      <h1>Hardware-first work, organized for quick scanning.</h1>
       <p>
-        This page collects my work across PCB design, embedded systems, firmware,
-        computer vision, and software. The projects below reflect the technical areas
-        I’m most interested in pursuing professionally: hardware-software integration,
-        sensing, robotics, embedded communication, and system-level engineering.
+        These projects show how I approach engineering: define the system, build the
+        first working path, debug the real behavior, and iterate until the prototype
+        is useful.
       </p>
+      <div class="hero-signal-row">
+        <span>PCB Design</span>
+        <span>Embedded Firmware</span>
+        <span>Sensor Systems</span>
+        <span>Robotics</span>
+      </div>
     </section>
 
-    <section>
-      <h2>PCB & Hardware Systems</h2>
+    <section class="project-section-block reveal">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Hardware Systems</p>
+          <h2>PCB design and sensing electronics.</h2>
+        </div>
+        <p>Board-level work with real constraints: packaging, safety, signal routing, and readable system behavior.</p>
+      </div>
       <div class="project-grid">
-        <div class="project-card">
+        <article class="project-card project-card-featured">
           <img
             class="project-card-thumb"
             src="assets/formula/formula-board-render.png"
             alt="Formula SAE precharge and discharge PCB render"
           />
           <div class="project-card-content">
+            <div class="project-tag-row">
+              <span>KiCad</span>
+              <span>EV Systems</span>
+              <span>Safety Logic</span>
+            </div>
             <h3>Formula SAE Precharge/Discharge PCB</h3>
             <p>
               Designed a 400V-class precharge/discharge control PCB for a Formula SAE EV tractive
@@ -47,30 +67,41 @@
             </p>
             <a href="formula.html">Project Details</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
+        <article class="project-card">
           <img
             class="project-card-thumb"
             src="assets/chessboard/chessboard-system.jpg"
             alt="Masterpiece Chessboard Hall-effect sensing system"
           />
           <div class="project-card-content">
-            <h3>Masterpiece Chessboard Hall-Effect Sensing System</h3>
+            <div class="project-tag-row">
+              <span>Custom PCB</span>
+              <span>Hall Effect</span>
+              <span>I2C</span>
+            </div>
+            <h3>Masterpiece Chessboard Sensing System</h3>
             <p>
               Designed a scalable Hall-effect sensing system for an automated chessboard using custom PCBs,
               embedded firmware, and I2C-based readout to generate real-time board occupancy data.
             </p>
             <a href="chessboard.html">Project Details</a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section>
-      <h2>Embedded & Firmware</h2>
+    <section class="project-section-block reveal">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Embedded Firmware</p>
+          <h2>Bring-up work close to the board.</h2>
+        </div>
+        <p>Firmware that turns raw sensor paths into trustworthy measurements and system states.</p>
+      </div>
       <div class="project-grid">
-        <div class="project-card">
+        <article class="project-card project-card-featured">
           <img
             class="project-card-thumb"
             src="assets/octal/bms_setup.jpg"
@@ -78,91 +109,145 @@
             style="object-position: 60% 45%;"
           />
           <div class="project-card-content">
+            <div class="project-tag-row">
+              <span>STM32</span>
+              <span>SPI/I2C</span>
+              <span>BMS</span>
+            </div>
             <h3>OCTAL Student Research Team</h3>
             <p>
-              Developed embedded battery-management firmware for a student research team building a heavy-lift
-              firefighting octocopter, including SPI-based cell-voltage readout, pack-voltage calculation,
-              thermistor acquisition through I2C-controlled muxes, and early BMS fault/state logic.
+              Developed embedded battery-management firmware for a heavy-lift firefighting octocopter:
+              SPI cell-voltage readout, muxed thermistors, pack-voltage calculation, and early fault logic.
             </p>
             <a href="octal.html">Project Details</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
+        <article class="project-card">
           <img
             class="project-card-thumb"
             src="assets/insole/hero-insole-esp.jpg"
             alt="Smart insole prototype with pressure sensors connected to ESP32 electronics"
           />
           <div class="project-card-content">
+            <div class="project-tag-row">
+              <span>ESP32</span>
+              <span>FSR Sensors</span>
+              <span>Wearable</span>
+            </div>
             <h3>Smart Insole Performance Feedback System</h3>
             <p>
-              Built a wearable smart insole prototype using force-sensitive resistors and an ESP32 to classify
-              heel strike, neutral stance, and forefoot loading in real time for athletic form feedback.
+              Built a wearable prototype using force-sensitive resistors and an ESP32 to classify
+              heel strike, neutral stance, and forefoot loading in real time.
             </p>
             <a href="insole.html">Project Details</a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section>
-      <h2>Computer Vision & Software</h2>
+    <section class="project-section-block reveal">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Robotics & Software</p>
+          <h2>Perception, gameplay logic, and system behavior.</h2>
+        </div>
+        <p>Software projects where the hard part is turning noisy inputs into reliable behavior.</p>
+      </div>
       <div class="project-grid">
-        <div class="project-card">
+        <article class="project-card">
           <img
             class="project-card-thumb"
             src="assets/drone/drone-detection-overlay.png"
             alt="Basketball drone vision detection overlay"
           />
           <div class="project-card-content">
+            <div class="project-tag-row">
+              <span>YOLOv8</span>
+              <span>OpenCV</span>
+              <span>Tracking</span>
+            </div>
             <h3>Basketball Drone Vision</h3>
             <p>
-              Built a YOLOv8-based real-time vision pipeline for basketball shot detection, combining ball
-              and rim detection with custom tracking and event logic for made-shot counting.
+              Built a real-time vision pipeline for basketball shot detection, combining ball/rim detection
+              with custom tracking and event logic for made-shot counting.
             </p>
             <a href="drone.html">Project Details</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
+        <article class="project-card">
           <img
             class="project-card-thumb"
             src="assets/pytanks/pytanks-gameplay.png"
             alt="PyTanks gameplay screenshot"
           />
           <div class="project-card-content">
+            <div class="project-tag-row">
+              <span>Python</span>
+              <span>MVC</span>
+              <span>Testing</span>
+            </div>
             <h3>PyTanks</h3>
             <p>
               Built a Wii Tanks-inspired Python game using MVC architecture, with work focused on movement,
-              aiming, projectile behavior, collision logic, and gameplay-system testing in a team codebase.
+              aiming, projectile behavior, collision logic, and gameplay-system testing.
             </p>
             <a href="pytanks.html">Project Details</a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section>
-      <h2>Additional Projects</h2>
-      <div class="project-grid">
-        <div class="project-card">
+    <section class="project-section-block reveal">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Mechanical Integration</p>
+          <h2>Vehicle packaging and safety design.</h2>
+        </div>
+        <p>CAD and analysis work connected to driver safety, vehicle constraints, and physical integration.</p>
+      </div>
+      <div class="project-grid single-project-grid">
+        <article class="project-card">
           <img
             class="project-card-thumb"
             src="assets/headrestraint/headrestraint-cad.png"
             alt="Formula SAE head restraint CAD model"
           />
           <div class="project-card-content">
+            <div class="project-tag-row">
+              <span>CAD</span>
+              <span>FEA</span>
+              <span>Formula SAE</span>
+            </div>
             <h3>Formula SAE Head Restraint</h3>
             <p>
-              Designed a Formula SAE head restraint to satisfy driver safety, cockpit packaging, and structural
-              requirements using CAD, hand calculations, and FEA before final on-car integration.
+              Designed a Formula SAE head restraint to satisfy driver safety, cockpit packaging,
+              and structural requirements using CAD, hand calculations, and FEA.
             </p>
             <a href="headrestraint.html">Project Details</a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   </main>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  </script>
 </body>
 </html>
